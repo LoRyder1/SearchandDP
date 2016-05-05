@@ -67,3 +67,48 @@ end
 
 # ice_cream_parlor 4, [1,4,5,3,2]
 # ice_cream_parlor 4, [2,2,4,3]
+
+# Time complexity O(N) using Kadane's algorithm 
+
+# Because of the way this algorithm uses optimal substructures (the maximum subarray ending at each position is calculated in a simple way from a related but smaller and overlapping subproblem: the maximum subarray ending at the previous position) this algorithm can be viewed as a simple example of dynamic programming.
+
+# Kadane's algorithm consists of a scan through the array values, computing at each position the maximum (positive sum) subarray ending at that position. This subarray is either empty (in which case its sum is zero) or consists of one more element than the maximum subarray ending at the previous position. The algorithm only needs to keep track of the ending position because the implied starting position is just after the last position the sum went negative, and you can always get a higher sum by dropping any negative-sum prefix. 
+# Kadane's Algo - look at each index and figure out max sum subarray ending at this index. 
+
+# def the_max_subarray arr
+#   max_ending_here = max_so_far = arr.shift
+#   arr.each do |x|
+#     max_ending_here = [x, max_ending_here + x].max
+#     max_so_far = [max_so_far, max_ending_here].max
+#   end
+#   p max_so_far
+# end
+
+def the_max_subarray arr
+  
+end
+
+the_max_subarray [-4,5,5,-7,4,-1,8,-6]  # 14
+# the_max_subarray [-1,-2,-3,-4,-5, -6]  # -1
+# the_max_subarray [1] # 1
+# the_max_subarray [1,2,3,4] # 10
+# the_max_subarray [2,-1,2,3,4,-5] # 10
+# the_max_subarray [31, -41, 59, 26, -53, 58, 97, -93, -23, 84] # 187 
+
+
+# Maximum Sum Subarray 
+# - Brute Force - Time Complexity O(N^2)
+# - Kadane's Algo = Time Complexity O(N^2) - divide and conquer method
+#  -- but can do much better with Kadane! - can run at linear time O(N)
+# - local max subarray is either the current element or current element combined with the previous subarray
+# - use this method for every element except for first element
+
+# When I ask these kinds of question, the answer isn't necessarily the goal. The goal is to see how they break down a problem. The main thing I personally look for is:
+# 1) identify a brute strength algorithm
+# 2) identify that #1 is a brute strength approach
+# 3) can they identify any parameters which can limit the problem's scope
+# 4) can they improve their #1
+# For #3 in this problem the limiting parameter is that the empty set will have a sum of 0 and thus is the case to beat.
+# On a related note my personal favorite questions are similar to what you suggest. I just want to state that there is value to these questions. Maybe it isn't the best way all the time and it can be misused, but it isn't useless.
+
+
