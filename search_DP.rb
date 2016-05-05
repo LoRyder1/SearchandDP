@@ -112,3 +112,27 @@ the_max_subarray [-4,5,5,-7,4,-1,8,-6]  # 14
 # On a related note my personal favorite questions are similar to what you suggest. I just want to state that there is value to these questions. Maybe it isn't the best way all the time and it can be misused, but it isn't useless.
 
 
+# ======== Count the number of negative numbers row wise and column wise ===========
+# Worst case time complexity is O(N*M) - n is the #of rows, m is the #of columns.
+# Optimal = starting from last element in row find first negative number and record its position = now you know that all to the left is negative. - Time complexity is O(N+M) - n = rows, m = columns
+
+def count_neg_num grid
+  count = 0
+  rows = grid[0].size
+  grid.each_with_index do |x,xi|
+    x.reverse.each_with_index do |y,yi|
+      if y < 0
+        count += rows - yi
+        break
+      end
+    end
+  end
+  p count
+end
+
+grid = [[-3,-2,-1,1],
+        [-2,2,3,4],
+        [4,5,7,8]]
+
+# count_neg_num grid
+# 7 vs 12 Naive solution O(N*M) vs Optimal solution O(N+M)
