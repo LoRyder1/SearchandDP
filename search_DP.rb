@@ -22,3 +22,29 @@ def insertionSort(ar)
 end
 
 # insertionSort [1,4,3,5,6,2]
+
+# Watson gives Sherlock an array AA of length NN. Then he asks him to determine if there exists an element in the array such that the sum of the elements on its left is equal to the sum of the elements on its right. If there are no elements to the left/right, then the sum is considered to be zero. 
+# Formally, find an ii, such that, AA1+A+A2...A...Ai-1 =A=Ai+1+A+Ai+2...A...AN.
+
+def sherlock_array arr
+  left_i = 0
+  right_i = arr.size-1
+  
+  left = arr[left_i]
+  right = arr[right_i]
+  
+  while left_i != right_i
+    if left < right
+      left_i += 1
+      left += arr[left_i]
+    else
+      right_i -= 1
+      right += arr[right_i]
+    end 
+  end
+  
+  puts left == right ? 'YES' : 'NO'
+end
+
+# sherlock_array [1,2,3]
+# sherlock_array [1,2,3,3]
