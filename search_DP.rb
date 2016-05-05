@@ -48,3 +48,22 @@ end
 
 # sherlock_array [1,2,3]
 # sherlock_array [1,2,3,3]
+
+# Sunny and Johnny together have MM dollars they want to spend on ice cream. The parlor offers NN flavors, and they want to choose two flavors so that they end up spending the whole amount.
+
+# You are given the cost of these flavors. The cost of the iithth flavor is denoted by ccii. You have to display the indices of the two flavors whose sum is MM.
+
+
+def ice_cream_parlor num, arr
+  for i in (0...arr.size) do
+    for j in (i+1...arr.size) do
+      if arr[i] + arr[j] == num
+        puts "#{i+1} #{j+1}"
+        break; break;
+      end
+    end
+  end
+end
+
+# ice_cream_parlor 4, [1,4,5,3,2]
+# ice_cream_parlor 4, [2,2,4,3]
